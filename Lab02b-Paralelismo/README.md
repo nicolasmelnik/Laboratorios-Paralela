@@ -32,12 +32,36 @@ Após compilar o projeto, siga estas etapas para executá-lo:
 ## Resultados
 Primeiramente, como solictado pelo professor, executamos o comando `cat /proc/cpuinfo` para verificar a configuração do processador utilizado, como é mostrado na imagem a seguir:
 
-![CPU info](https://github.com/nicolasmelnik/Laboratorios-Paralela/assets/117850844/c99daa7a-5aaa-4718-b0a7-35b94a2bf08d)
+<div align="center">
+<img src="https://github.com/nicolasmelnik/Laboratorios-Paralela/assets/117850844/c99daa7a-5aaa-4718-b0a7-35b94a2bf08d" width="800px" />
+</div>
 
 Construa uma solução paralela e responda às seguintes questões:
 
 1. Qual o tempo de execução serial e paralelo para 1, 2, 4, 6 e 8 processadores? Desenhe um gráfico contendo todos os tempos de execução
 
+<div align="center">
+<img src="https://github.com/nicolasmelnik/Laboratorios-Paralela/assets/117850844/f63ed04b-b9a8-4023-bae6-9f0f46d7cfd0" width="800px" />
+</div>
+
+<div align="center">
+<img src="https://github.com/nicolasmelnik/Laboratorios-Paralela/assets/117850844/e341632e-22a9-470f-a395-2e1b9976adb4"/>
+</div>
+
 2. Qual o speedup para 1, 2, 4, 6 e 8 processadores? Desenhe um gráfico mostrando os diferentes valores de speedup.
 
-3. Como você acha que poderia melhorar o seu algoritmo para obter maior benefício com o paralelismo?Para provar seu ponto, refaça a solução com essa abordagem e construa um novo gráfico de speedup para 1, 2, 4, 6 e 8 processadores.
+<div align="center">
+<img src="https://github.com/nicolasmelnik/Laboratorios-Paralela/assets/117850844/bc7736b7-bf1f-4adb-b4ee-82eed5ad85b1"/>
+</div>
+
+4. Como você acha que poderia melhorar o seu algoritmo para obter maior benefício com o paralelismo?Para provar seu ponto, refaça a solução com essa abordagem e construa um novo gráfico de speedup para 1, 2, 4, 6 e 8 processadores.
+
+Decidimos abordar uma estratégia diferente para se obter o resultado da multiplicação de duas matrizes, ao invés de utilizar uma thread para calcular cada elemento da matriz resultante, decidimos dividir a matriz em blocos, em que cada thread será responsável por realizar os cálculos deste bloco. No código desse laboratório, temos uma matriz 180 x 180 e o tamanho do nosso bloco será 30, ou seja, apenas 6 threads serão responsáveis por calcular os elementos da matriz resultante.
+
+<div align="center">
+<img src="https://github.com/nicolasmelnik/Laboratorios-Paralela/assets/117850844/df5504f1-05a1-4a5e-b00c-eb28c599590c" width="800px" />
+</div>
+
+<div align="center">
+<img src="https://github.com/nicolasmelnik/Laboratorios-Paralela/assets/117850844/028281fb-2a0f-4bd1-a67d-e3317b9cc3f8"/>
+</div>
